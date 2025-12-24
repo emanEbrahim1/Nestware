@@ -1,0 +1,171 @@
+/* Custom Testimonials Carousel Styling */
+
+/* Illustration left-right animation */
+@keyframes moveLeftRight {
+  0%, 100% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.illustration-animate {
+  animation: moveLeftRight 5s ease-in-out infinite;
+}
+
+/* Services sliding animation */
+@keyframes slideLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-100% - 34px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.services-scroll-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.services-scroll-track {
+  display: flex;
+  gap: 34px;
+  animation: slideLeftRight 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+.services-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 80px;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Custom Arrow Styling */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #5a47fb;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a47fb;
+}
+
+.carousel-arrow:hover {
+  background: #5a47fb;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow-left {
+  left: 10px;
+}
+
+.carousel-arrow-right {
+  right: 10px;
+}
+
+/* Custom Dots Styling */
+.carousel-dots {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid #5a47fb;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  background: rgba(90, 71, 251, 0.3);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: #5a47fb;
+  transform: scale(1.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .testimonial-carousel-wrapper {
+    padding: 0 60px;
+  }
+  
+  .carousel-arrow-left {
+    left: 5px;
+  }
+  
+  .carousel-arrow-right {
+    right: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-carousel-wrapper {
+    padding: 0 40px;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}

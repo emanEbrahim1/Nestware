@@ -1,0 +1,175 @@
+/* ===== SCROLL ANIMATIONS ===== */
+
+/* Fade in on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Staggered text animations for sequential appearance */
+@keyframes fadeInUpHeading {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInUpContent {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating animation for logo letters */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+/* Hero Logo Floating Animations - specific selectors */
+/* First letter (N) */
+.absolute.bottom-0.left-0.right-\[89\.96\%\].top-\[25\.81\%\][data-name="Vector"] {
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Second letter (e) */
+.absolute.bottom-0.left-\[12\.71\%\].right-\[76\.91\%\].top-\[26\.1\%\] {
+  animation: floatSlow 3.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* Third letter (s) */
+.absolute.bottom-0.left-\[25\.76\%\].right-\[64\.19\%\].top-\[25\.95\%\][data-name="Vector"] {
+  animation: float 3.2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* Fourth letter (t) - the tall one */
+.absolute.bottom-0.left-\[38\.48\%\].right-\[54\.84\%\].top-0[data-name="Vector"] {
+  animation: floatReverse 3.8s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+/* Fifth letter (w) */
+.absolute.bottom-0.left-\[65\.84\%\].right-\[23\.51\%\].top-\[26\.1\%\][data-name="Vector"] {
+  animation: floatSlow 3.3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Sixth letter (a) */
+.absolute.bottom-0.left-\[79\.16\%\].right-\[13\.05\%\].top-\[26\.1\%\][data-name="Vector"] {
+  animation: float 3.6s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* Seventh letter (r) */
+.absolute.bottom-0.left-\[89\.62\%\].right-0.top-\[25\.81\%\][data-name="Vector"] {
+  animation: floatSlow 3.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* Eighth letter (e) - the last letter with special position */
+.absolute.inset-\[25\.81\%_36\.83\%_0_47\.83\%\][data-name="Vector"] {
+  animation: float 3.7s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+/* Intersection Observer animation class */
+.animate-in {
+  animation: fadeInUp 2s ease-out both;
+}
+
+/* Heading animation class */
+[data-section-heading].animate-in {
+  animation: fadeInUpHeading 2.2s ease-out both;
+}
+
+/* Content animation class */
+[class*="Helper"].animate-in,
+.content-stretch.animate-in {
+  animation: fadeInUpContent 2s ease-out both;
+}
+
+/* Initial hidden state for elements that will animate - exclude logo letters */
+[data-section-heading]:not(.absolute [data-name="Vector"]),
+[data-name="Background+Border+Shadow"],
+[class*="Helper"],
+.h-\[390px\].relative.shrink-0.w-\[370px\] {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Keep animated elements visible */
+[data-section-heading].animate-in,
+[data-name="Background+Border+Shadow"].animate-in,
+[class*="Helper"].animate-in,
+.h-\[390px\].relative.shrink-0.w-\[370px\].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== TEXT HOVER EFFECTS ===== */
+
+/* General text hover effect - subtle scale and color shift */
+h1, h2, h3, h4, h5, h6, p, span, div[data-name*="Text"], [data-name*="Helper"] {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  transform: scale(1.02);
+  color: #5A47FB;
+}
+
+p:hover, span:hover, div[data-name*="Text"]:hover, [data-name*="Helper"]:hover {
+  transform: scale(1.01);
+  opacity: 0.9;
+}
+
+/* Button text hover (enhance existing button hover) */
+button:hover, a:hover {
+  cursor: pointer;
+}
+
+/* Testimonial text hover */
+[data-name="HelperText"]:hover {
+  transform: scale(1.005);
+}
